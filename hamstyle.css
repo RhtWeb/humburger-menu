@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+.checking input{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.menu{
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    list-style: none;
+    background: rgba(33, 33, 33, 0.7);
+    transform: scale(0);
+    transition: transform 350ms ease-in-out;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    /* font-size: 1.5rem; */
+    display: block;
+    padding: 0.5rem;
+}
+
+.menu li a:hover{
+    background: rgba(44, 42, 42, 0.8);
+    border-radius: 0.5rem;
+}
+ 
+.checking input:checked + nav .menu{
+    visibility: visible;
+    transform: scale(2);
+}
+
+.ham{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: rgba(51, 51, 51, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.ham > div{
+    position: relative;
+    width: 80%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 350ms ease-in-out; 
+}
+
+.ham::before,
+.ham::after{
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 80%;
+    height: 2px;
+    background: #fff;
+    transition: transform 350ms ease-in-out; 
+    
+}
+
+.ham::after{
+    top: 29px;
+    
+}
+
+.checking input:checked ~ .ham div{
+    transform: rotate(45deg);
+}
+
+.checking input:checked ~ .ham::before{
+    transform: rotate(-45deg);
+    top: 19px
+}
+
+.checking input:checked ~ .ham::after{
+    display: none;
+}
+
+.checking input:checked:hover ~ .ham{
+    transform: scale(1.2);
+}
+
+#showcase{
+    /* background: url("./immg/photo-1.jpg") no-repeat center center/cover; */
+    background: rgba(23, 23, 23, 0.4);
+    height: 100vh;
+    color: aliceblue;
+    position: relative;
+    /* z-index: 1; */
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 70%;
+    margin: 0 auto;
+    
+}
+
+#showcase::before{
+    content: "";
+    position: absolute;
+    /* background: rgba(23, 23, 23, 0.4); */
+    background: url("./immg/photo-1.jpg") no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.btn{
+    background: #333;
+    margin-top: 1rem;
+    padding: 0.6rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 0.6rem;
+}
+
+.btn:hover{
+    padding: 0.8rem;
+}
